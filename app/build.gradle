@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def VersionMajor = 1
 def VersionMinor = 0
@@ -13,11 +14,17 @@ android {
         targetSdkVersion 27
         versionCode VersionMajor * 100 + VersionMinor
         versionName "${VersionMajor}.${VersionMinor}"
-        vectorDrawables.useSupportLibrary= true
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+
+        /**
+         * defining application version variable so it can be accessed as string resources
+         * in debug and release mode.
+         */
+
         release {
             resValue "string", "app_version", "${defaultConfig.versionName}"
             minifyEnabled false
@@ -28,6 +35,10 @@ android {
         }
     }
 }
+/**
+ * This kotlin-kapt plugin helps to generate class for interoperability between kotlin and JAVA
+ */
+kapt { generateStubs = true }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -39,6 +50,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
 
     /*
      * adding dependencies that will help to use architecture components
@@ -50,6 +62,13 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:1.1.1"
     kapt "android.arch.lifecycle:compiler:1.1.1"
     kapt "android.arch.persistence.room:compiler:1.1.1"
+
+    /**
+     * Adding Retrofit Library to make network call
+     * and GSON Converted to parse the returned json data.
+     */
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

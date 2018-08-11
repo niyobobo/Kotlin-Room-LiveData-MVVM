@@ -12,7 +12,7 @@ import android.arch.persistence.room.Update
  */
 
 @Dao
-interface BaseDao<in T> {
+interface GenericDao<in T> {
 
     /*
     * In case there is conflicts during insert manipulation operations, we have to specify

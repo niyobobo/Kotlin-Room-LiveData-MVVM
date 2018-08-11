@@ -14,7 +14,7 @@ import com.bobo.mvvmlivedata.model.MenuModel
  */
 
 @Dao
-interface MenuModelDAO : BaseDao<MenuModel> {
+interface MenuModelDAO : GenericDao<MenuModel> {
     /*
      * service that Fetch all list of the menu item registered into the database.
      * Query annotation shows what we want to read data from the database
@@ -26,7 +26,7 @@ interface MenuModelDAO : BaseDao<MenuModel> {
      * Getting single Menu item data related to the id
      */
 
-    @Query("SELECT * FROM MenuModel where itemId= :id")
+    @Query("SELECT * FROM MenuModel where id= :id")
     fun getSingleMenuItem(id: String): MenuModel
 
 }

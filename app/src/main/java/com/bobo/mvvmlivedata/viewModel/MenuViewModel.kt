@@ -2,18 +2,18 @@ package com.bobo.mvvmlivedata.viewModel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
-import com.bobo.mvvmlivedata.data.dao.MenuModelDAO
 import com.bobo.mvvmlivedata.model.MenuModel
-
 
 class MenuViewModel : ViewModel() {
 
-    private var menuItemList: LiveData<List<MenuModel>>? = null
+    private var userId: String? = null
+    private var menuList: LiveData<MenuModel>? = null
 
-    fun getMenuList(menuModelDAO: MenuModelDAO): LiveData<List<MenuModel>> {
-        if (menuItemList == null) {
-            menuItemList = menuModelDAO.getAllMenuItem()
-        }
-        return menuItemList!!
+    fun init(userId: String) {
+        this.userId = userId
+    }
+
+    fun getMenuList(): LiveData<MenuModel>? {
+        return menuList
     }
 }

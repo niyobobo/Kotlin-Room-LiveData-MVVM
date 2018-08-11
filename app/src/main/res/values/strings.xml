@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mvvm+livedata</string>
+    <string name="currency">RWF %1s</string>
 </resources>
