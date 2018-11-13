@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

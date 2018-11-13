@@ -1,7 +1,7 @@
 package com.bobo.mvvmlivedata.data.database
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.bobo.mvvmlivedata.data.dao.MenuModelDAO
 import com.bobo.mvvmlivedata.model.MenuModel
 

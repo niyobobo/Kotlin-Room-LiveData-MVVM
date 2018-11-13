@@ -1,7 +1,7 @@
 package com.bobo.mvvmlivedata.viewModel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.bobo.mvvmlivedata.model.MenuModel
 
 class MenuViewModel : ViewModel() {

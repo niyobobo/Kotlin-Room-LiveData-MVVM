@@ -1,7 +1,6 @@
 package com.bobo.mvvmlivedata.view.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import com.bobo.mvvmlivedata.model.MenuModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.custom_menu_item.view.*
 
-class MenuItemAdapter(private val menuList: List<MenuModel>, private val context: Context) : RecyclerView.Adapter<MenuItemAdapter.ViewHolder>() {
+class MenuItemAdapter(private val menuList: List<MenuModel>, private val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<MenuItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.custom_menu_item, parent, false)
@@ -31,7 +30,7 @@ class MenuItemAdapter(private val menuList: List<MenuModel>, private val context
                 .into(holder.image)
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var name = itemView.name!!
         var description = itemView.description!!
         var price = itemView.price!!
