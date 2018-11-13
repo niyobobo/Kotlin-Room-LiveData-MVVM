@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/code
+    working_directory: ~/Kotlin-Room-LiveData-MVVM
     docker:
       - image: circleci/android:api-28-alpha
     environment:
@@ -28,4 +28,3 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
